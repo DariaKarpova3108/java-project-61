@@ -9,6 +9,7 @@ public class EvenGame {
                 "May I have your name?");
         Scanner scan = new Scanner(System.in);
         String nameUser = scan.nextLine();
+        System.out.println("Hello, " + nameUser + "!");
         int rightAnswers = 0;
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
         do {
