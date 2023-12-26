@@ -1,4 +1,4 @@
-package hexlet.code;
+package hexlet.code.games;
 
 import java.util.Random;
 import java.util.Scanner;
@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class CalculateGame {
     public static void playCalculate() {
         System.out.print("Welcome to the Brain Games!\n" +
-                "May I have your name?");
+                "May I have your name? ");
         Scanner scan = new Scanner(System.in);
         String nameUser = scan.nextLine();
         System.out.println("Hello, " + nameUser + "!");

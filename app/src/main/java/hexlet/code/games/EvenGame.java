@@ -1,4 +1,4 @@
-package hexlet.code;
+package hexlet.code.games;
 
 import java.util.Random;
 import java.util.Scanner;
@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class EvenGame {
     public static void playEvenGame() {
         System.out.print("Welcome to the Brain Games!\n" +
-                "May I have your name?");
+                "May I have your name? ");
         Scanner scan = new Scanner(System.in);
         String nameUser = scan.nextLine();
         System.out.println("Hello, " + nameUser + "!");
@@ -19,7 +19,7 @@ public class EvenGame {
             String answerOfFirstTask = scan.nextLine();
             System.out.println("Your answer: " + answerOfFirstTask);
             if (!answerOfFirstTask.equals(EvenGame.isEven(numberOfFirstTask))) {
-                System.out.println("'yes' is wrong answer ;(. Correct answer was 'no'.\n" +
+                System.out.println("'" + answerOfFirstTask + "' is wrong answer ;(. Correct answer was '" + EvenGame.isEven(numberOfFirstTask) + "'.\n" +
                         "Let's try again, " + nameUser + "!");
                 return;
             }
