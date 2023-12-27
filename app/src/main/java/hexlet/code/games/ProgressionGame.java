@@ -19,11 +19,12 @@ public class ProgressionGame {
             int missedNumber = progression[missedIndex];
             for (int i = 0; i < progression.length; i++) {
                 if (i == missedIndex) {
-                    System.out.println("..");
+                    System.out.print(".." + " ");
                 } else {
-                    System.out.println(progression[i] + " ");
+                    System.out.print(progression[i] + " ");
                 }
             }
+            System.out.println();
             System.out.print("Question: ");
             int answer = scan.nextInt();
             System.out.println("Your answer: " + answer);
@@ -42,7 +43,7 @@ public class ProgressionGame {
 
     public static int[] writeProgression() {
         Random rand = new Random();
-        int length = rand.nextInt(5) + 5;
+        int length = rand.nextInt(5) + 6;
         int[] array = new int[length];
         int start = rand.nextInt(50);
         int step = rand.nextInt(10) + 1;
