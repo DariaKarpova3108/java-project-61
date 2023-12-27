@@ -14,12 +14,12 @@ public class EvenGame {
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
         do {
             Random rand = new Random();
-            int numberOfFirstTask = rand.nextInt(100) + 1;
-            System.out.println("Question: " + numberOfFirstTask);
-            String answerOfFirstTask = scan.nextLine();
-            System.out.println("Your answer: " + answerOfFirstTask);
-            if (!answerOfFirstTask.equals(EvenGame.isEven(numberOfFirstTask))) {
-                System.out.println("'" + answerOfFirstTask + "' is wrong answer ;(. Correct answer was '" + EvenGame.isEven(numberOfFirstTask) + "'.\n" +
+            int number = rand.nextInt(100) + 1;
+            System.out.println("Question: " + number);
+            String answer = scan.nextLine();
+            System.out.println("Your answer: " + answer);
+            if (!answer.equals(EvenGame.isEven(number))) {
+                System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + EvenGame.isEven(number) + "'.\n" +
                         "Let's try again, " + nameUser + "!");
                 return;
             }
