@@ -17,6 +17,7 @@ public class ProgressionGame {
             int[] progression = writeProgression();
             int missedIndex = rand.nextInt(progression.length);
             int missedNumber = progression[missedIndex];
+            System.out.print("Question: ");
             for (int i = 0; i < progression.length; i++) {
                 if (i == missedIndex) {
                     System.out.print(".." + " ");
@@ -24,8 +25,6 @@ public class ProgressionGame {
                     System.out.print(progression[i] + " ");
                 }
             }
-            System.out.println();
-            System.out.print("Question: ");
             int answer = scan.nextInt();
             System.out.println("Your answer: " + answer);
             if (!(answer == missedNumber)) {
