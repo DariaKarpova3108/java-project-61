@@ -32,6 +32,8 @@ public class App {
                 ProgressionGame.playProgression();
             case 6:
                 Prime.playPrimeGame();
+            case 0:
+                break;
         }
     }
 }
