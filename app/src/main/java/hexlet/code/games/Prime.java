@@ -12,7 +12,8 @@ public class Prime {
         String[][] task = new String[countOfLines][countOfColumns];
         Random rand = new Random();
         for (int i = 0; i < task.length; i++) {
-            int number = rand.nextInt(100) + 1;
+            int maxSizeNumber = 100;
+            int number = rand.nextInt(maxSizeNumber);
             task[i][0] = Integer.toString(number);
 
             if (number < 2) {

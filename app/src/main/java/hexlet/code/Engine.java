@@ -10,7 +10,7 @@ public class Engine {
         System.out.println("Hello, " + nameUser + "!");
         System.out.println(description);
         int count = 0;
-        int rightCountAnswer = 3;
+        int generalCountOfRightAnswer = 3;
         do {
             String rightAnswer = taskAndAnswer[count][1];
             System.out.println("Question: " + taskAndAnswer[count][0]);
@@ -25,7 +25,7 @@ public class Engine {
                 System.out.println("Correct!");
                 count++;
             }
-        } while (count < rightCountAnswer);
+        } while (count < generalCountOfRightAnswer);
         System.out.println("Congratulations, " + nameUser + "!");
     }
 }
