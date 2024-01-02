@@ -22,16 +22,22 @@ public class App {
         switch (number) {
             case 1:
                 Cli.greetings();
+                break;
             case 2:
                 EvenGame.playEvenGame();
+                break;
             case 3:
                 CalculateGame.playCalculate();
+                break;
             case 4:
                 GCD.playGcd();
+                break;
             case 5:
                 ProgressionGame.playProgression();
+                break;
             case 6:
                 Prime.playPrimeGame();
+                break;
             case 0:
                 break;
         }
