@@ -1,49 +1,36 @@
 package hexlet.code.games;
 
+import hexlet.code.Engine;
+
 import java.util.Random;
-import java.util.Scanner;
 
 public class CalculateGame {
     public static void playCalculate() {
-        System.out.print("Welcome to the Brain Games!\n" +
-                "May I have your name? ");
-        Scanner scan = new Scanner(System.in);
-        String nameUser = scan.nextLine();
-        System.out.println("Hello, " + nameUser + "!");
-        System.out.println("What is the result of the expression?");
-        int rightAnswers = 0;
-        do {
-            System.out.print("Question: " );
-            int value = getValue();
-            int answer = scan.nextInt();
-            System.out.println("Your answer: " + answer);
-            if (!(answer == value)) {
-                System.out.println("Your answer: " + answer + "\n" +
-                        "'" + answer + "'" + "is wrong answer ;(. Correct answer was '" + value + "'.\n" +
-                        "Let's try again, " + nameUser + "!");
-                return;
-            } else {
-                System.out.println("Correct!");
-                rightAnswers++;
-            }
-        } while (rightAnswers < 3);
-        System.out.println("Congratulations, " + nameUser + "!");
-    }
+        Random rand = new Random();
+        String description = "What is the result of the expression?";
+        String[][] task = new String[3][2];
+        String[] operation = {"+", "-", "*"};
 
-    public static int getValue() {
-        Random random = new Random();
-        int numberOne = random.nextInt(100) + 1;
-        int numberTwo = random.nextInt(100) + 1;
-        boolean operation = random.nextBoolean();
-        int result = 0;
-        if (operation) {
-            result = numberOne + numberTwo;
-            System.out.println(numberOne + " + " + numberTwo);
-        } else {
-            result = numberOne - numberTwo;
-            System.out.println(numberOne + " - " + numberTwo);
+        for (int i = 0; i < task.length; i++) {
+            int numberOne = rand.nextInt(100) + 1;
+            int numberTwo = rand.nextInt(100) + 1;
+            int operationIndex = rand.nextInt(operation.length);
+            switch (operation[operationIndex]) {
+                case "+" -> task[i][0] = numberOne + " + " + numberTwo;
+
+                case "-" -> task[i][0] = numberOne + " - " + numberTwo;
+                case "*" -> task[i][0] = numberOne + " * " + numberTwo;
+            }
+            int result = 0;
+            switch (operation[operationIndex]) {
+                case "+" -> result = numberOne + numberTwo;
+
+                case "-" -> result = numberOne - numberTwo;
+                case "*" -> result = numberOne * numberTwo;
+            }
+            task[i][1] = Integer.toString(result);
         }
-        return result;
+        Engine.run(description, task);
     }
 }
 

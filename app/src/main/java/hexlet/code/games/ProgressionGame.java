@@ -1,54 +1,33 @@
 package hexlet.code.games;
 
+import hexlet.code.Engine;
+
+import java.util.Arrays;
 import java.util.Random;
-import java.util.Scanner;
 
 public class ProgressionGame {
     public static void playProgression() {
+        String description = "What number is missing in the progression?";
+        String[][] task = new String[3][2];
         Random rand = new Random();
-        Scanner scan = new Scanner(System.in);
-        System.out.println("Welcome to the Brain Games!\n" +
-                "May I have your name? ");
-        String nameUser = scan.nextLine();
-        System.out.println("Hello, " + nameUser + "!");
-        int count = 0;
-        System.out.println("What number is missing in the progression?");
-        do {
-            int[] progression = writeProgression();
-            int missedIndex = rand.nextInt(progression.length);
-            int missedNumber = progression[missedIndex];
-            System.out.print("Question: ");
-            for (int i = 0; i < progression.length; i++) {
-                if (i == missedIndex) {
-                    System.out.print(".." + " ");
-                } else {
-                    System.out.print(progression[i] + " ");
+        for (int i = 0; i < task.length; i++) {
+            int length = rand.nextInt(5) + 6;
+            String[] array = new String[length];
+            int start = rand.nextInt(50);
+            int step = rand.nextInt(10) + 1;
+            for (int k = 0; k < array.length; k++) {
+                array[k] = String.valueOf(start + k * step);
+            }
+            int missingIndex = rand.nextInt(length);
+            String missingNumber = array[missingIndex];
+            for (int k = 0; k < array.length; k++) {
+                if (k == missingIndex) {
+                    array[k] = " .. ";
                 }
             }
-            int answer = scan.nextInt();
-            System.out.println("Your answer: " + answer);
-            if (!(answer == missedNumber)) {
-                System.out.println("Your answer: " + answer + "\n" +
-                        "'" + answer + "'" + "is wrong answer ;(. Correct answer was '" + missedNumber + "'.\n" +
-                        "Let's try again, " + nameUser + "!");
-                return;
-            } else {
-                System.out.println("Correct!");
-                count++;
-            }
-        } while (count < 3);
-        System.out.println("Congratulations, " + nameUser + "!");
-    }
-
-    public static int[] writeProgression() {
-        Random rand = new Random();
-        int length = rand.nextInt(5) + 6;
-        int[] array = new int[length];
-        int start = rand.nextInt(50);
-        int step = rand.nextInt(10) + 1;
-        for (int i = 0; i < array.length; i++) {
-            array[i] = start + i * step;
+            task[i][0] = Arrays.toString(array);
+            task[i][1] = missingNumber;
         }
-        return array;
+        Engine.run(description, task);
     }
 }
