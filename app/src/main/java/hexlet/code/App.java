@@ -19,18 +19,19 @@ public class App {
                 Your choice:""");
         int number = scan.nextInt();
         scan.nextLine();
-        if (number == 1) {
-            Cli.greetings();
-        } else if (number == 2) {
-            EvenGame.playEvenGame();
-        } else if (number == 3) {
-            CalculateGame.playCalculate();
-        } else if (number == 4) {
-            GCD.playGcd();
-        } else if (number == 5) {
-            ProgressionGame.playProgression();
-        } else if (number == 6) {
-            Prime.playPrimeGame();
+        switch (number) {
+            case 1:
+                Cli.greetings();
+            case 2:
+                EvenGame.playEvenGame();
+            case 3:
+                CalculateGame.playCalculate();
+            case 4:
+                GCD.playGcd();
+            case 5:
+                ProgressionGame.playProgression();
+            case 6:
+                Prime.playPrimeGame();
         }
     }
 }
