@@ -11,7 +11,7 @@ public class ProgressionGame {
         String[][] task = new String[3][2];
         Random rand = new Random();
         for (int i = 0; i < task.length; i++) {
-            int length = rand.nextInt(6) + 5;
+            int length = rand.nextInt(5,10);
             String[] array = new String[length];
             int start = rand.nextInt(50);
             int step = rand.nextInt(10) + 1;
