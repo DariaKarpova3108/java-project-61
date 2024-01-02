@@ -1,28 +1,28 @@
 clean:
-    ./gradlew clean
+	./gradlew clean
 
 build:
-    cd app && ./gradlew clean build
+	cd app && ./gradlew clean build
 
 run:
-    ./gradlew run --args="-h"
+	./gradlew run --args="-h"
 
 lint:
-    ./gradlew checkstyleMain checkstyleTest
+	./gradlew checkstyleMain checkstyleTest
 
 test:
-    ./gradlew test
+	./gradlew test
 
 report:
-    cd app && ./gradlew jacocoTestReport
+	cd app && ./gradlew jacocoTestReport
 
 install:
-    ./gradlew clean install
+	./gradlew clean install
 
 run-dist:
-    ./build/install/app/bin/app -h
+	./build/install/app/bin/app -h
 
 check-updates:
-    ./gradlew dependencyUpdates
+	./gradlew dependencyUpdates
 
 .PHONY: build
