@@ -10,19 +10,22 @@ public class Engine {
         System.out.println("Hello, " + nameUser + "!");
         System.out.println(description);
         int count = 0;
+        int rightCountAnswer = 3;
         do {
             String rightAnswer = taskAndAnswer[count][1];
             System.out.println("Question: " + taskAndAnswer[count][0]);
             String answer = scan.next();
             System.out.println("Your answer: " + answer);
             if (!(answer.equals(rightAnswer))) {
-                System.out.println("Your answer: " + answer + "\n" + "'" + answer + "'" + "is wrong answer ;(. Correct answer was '" + rightAnswer + "'.\n" + "Let's try again, " + nameUser + "!");
+                System.out.println("Your answer: " + answer + "\n"
+                        + "'" + answer + "'" + "is wrong answer ;(. Correct answer was '" + rightAnswer + "'.\n"
+                        + "Let's try again, " + nameUser + "!");
                 return;
             } else {
                 System.out.println("Correct!");
                 count++;
             }
-        } while (count < 3);
+        } while (count < rightCountAnswer);
         System.out.println("Congratulations, " + nameUser + "!");
     }
 }

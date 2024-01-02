@@ -1,6 +1,10 @@
 package hexlet.code;
 
-import hexlet.code.games.*;
+import hexlet.code.games.CalculateGame;
+import hexlet.code.games.EvenGame;
+import hexlet.code.games.GCD;
+import hexlet.code.games.Prime;
+import hexlet.code.games.ProgressionGame;
 
 import java.util.Scanner;
 
@@ -40,6 +44,10 @@ public class App {
                 break;
             case 0:
                 break;
+            default:
+                System.out.println("Invalid game number. Please enter a number from 0 to 6.");
+                break;
+
         }
     }
 }

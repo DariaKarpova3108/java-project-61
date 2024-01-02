@@ -8,7 +8,9 @@ public class CalculateGame {
     public static void playCalculate() {
         Random rand = new Random();
         String description = "What is the result of the expression?";
-        String[][] task = new String[3][2];
+        int countOfLines = 3;
+        int countOfColumns = 2;
+        String[][] task = new String[countOfLines][countOfColumns];
         String[] operation = {"+", "-", "*"};
 
         for (int i = 0; i < task.length; i++) {
