@@ -26,3 +26,4 @@ check-updates:
 	./gradlew dependencyUpdates
 
 .PHONY: build
+

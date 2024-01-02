@@ -22,7 +22,7 @@ public class ProgressionGame {
             String missingNumber = array[missingIndex];
             for (int k = 0; k < array.length; k++) {
                 if (k == missingIndex) {
-                    array[k] = " .. ";
+                    array[k] = "..";
                 }
             }
             task[i][0] = Arrays.toString(array);
