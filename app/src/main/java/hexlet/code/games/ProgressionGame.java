@@ -11,7 +11,7 @@ public class ProgressionGame {
         String[][] task = new String[3][2];
         Random rand = new Random();
         for (int i = 0; i < task.length; i++) {
-            int length = rand.nextInt(5,10);
+            int length = rand.nextInt(5, 10);
             String[] array = new String[length];
             int start = rand.nextInt(50);
             int step = rand.nextInt(10) + 1;
@@ -20,12 +20,8 @@ public class ProgressionGame {
             }
             int missingIndex = rand.nextInt(length);
             String missingNumber = array[missingIndex];
-            for (int k = 0; k < array.length; k++) {
-                if (k == missingIndex) {
-                    array[k] = "..";
-                }
-            }
-            task[i][0] = Arrays.toString(array);
+            array[missingIndex] = "..";
+            task[i][0] = String.join(" ", array);
             task[i][1] = missingNumber;
         }
         Engine.run(description, task);
