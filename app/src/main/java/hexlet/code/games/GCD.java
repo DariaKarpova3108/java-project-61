@@ -7,14 +7,14 @@ import java.util.Random;
 public class GCD {
     public static void playGcd() {
         String description = "Find the greatest common divisor of given numbers.";
-        int countOfLines = 3;
-        int countOfColumns = 2;
-        String[][] task = new String[countOfLines][countOfColumns];
+        final int LINES = 3;
+        final int COLUMNS = 2;
+        String[][] task = new String[LINES][COLUMNS];
         Random rand = new Random();
         for (int i = 0; i < task.length; i++) {
-            int maxSizeNumber = 50;
-            int numberOne = rand.nextInt(maxSizeNumber);
-            int numberTwo = rand.nextInt(maxSizeNumber);
+            final int SIZE = 50;
+            int numberOne = rand.nextInt(SIZE);
+            int numberTwo = rand.nextInt(SIZE);
             task[i][0] = numberOne + " " + numberTwo;
 
             while (numberTwo != 0) {
