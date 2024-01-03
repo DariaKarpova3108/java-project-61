@@ -10,11 +10,11 @@ public class CalculateGame {
         String description = "What is the result of the expression?";
         final int LINES = 3;
         final int COLUMNS = 2;
+        final int SIZE = 10;
         String[][] task = new String[LINES][COLUMNS];
         String[] operation = {"+", "-", "*"};
 
         for (int i = 0; i < task.length; i++) {
-            final int SIZE = 10;
             int numberOne = rand.nextInt(SIZE);
             int numberTwo = rand.nextInt(SIZE);
             int operationIndex = rand.nextInt(operation.length);
