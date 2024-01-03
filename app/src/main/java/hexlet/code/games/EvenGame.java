@@ -14,7 +14,7 @@ public class EvenGame {
         final int maxSize = 100;
         String[][] task = new String[linesCount][columnsCount];
         for (int i = 0; i < task.length; i++) {
-            task[i][0] = Integer.toString(rand.nextInt(maxSize);
+            task[i][0] = Integer.toString(rand.nextInt(maxSize));
             if (Integer.parseInt(task[i][0]) % 2 == 0) {
                 task[i][1] = "yes";
             } else {
