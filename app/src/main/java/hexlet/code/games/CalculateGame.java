@@ -12,29 +12,40 @@ public class CalculateGame {
         final int columnsCount = 2;
         final int sizeNumber = 10;
         String[][] task = new String[linesCount][columnsCount];
-        String[] operation = {"+", "-", "*"};
-
         for (int i = 0; i < task.length; i++) {
-            int numberOne = rand.nextInt(sizeNumber);
-            int numberTwo = rand.nextInt(sizeNumber);
-            int operationIndex = rand.nextInt(operation.length);
-            switch (operation[operationIndex]) {
-                case "+" -> task[i][0] = numberOne + " + " + numberTwo;
-
-                case "-" -> task[i][0] = numberOne + " - " + numberTwo;
-                case "*" -> task[i][0] = numberOne + " * " + numberTwo;
-                default -> System.out.println("Incorrect operation. Please choose the correct mathematical operation.");
-            }
-            int result = 0;
-            switch (operation[operationIndex]) {
-                case "+" -> result = numberOne + numberTwo;
-                case "-" -> result = numberOne - numberTwo;
-                case "*" -> result = numberOne * numberTwo;
-                default -> System.out.println("Incorrect result.");
-            }
-            task[i][1] = Integer.toString(result);
+            int firstNumber = rand.nextInt(sizeNumber);
+            int secondNumber = rand.nextInt(sizeNumber);
+            String operation = getOperation();
+            String question = firstNumber + " " + operation + " " + secondNumber;
+            int answer = calculate(firstNumber, secondNumber, operation);
+            task[i][0] = question;
+            task[i][1] = Integer.toString(answer);
         }
         Engine.run(description, task);
     }
-}
 
+    private static int calculate(int numberOne, int numberTwo, String operation) {
+        int result = 0;
+        switch (operation) {
+            case "+":
+                result = numberOne + numberTwo;
+                break;
+            case "-":
+                result = numberOne - numberTwo;
+                break;
+            case "*":
+                result = numberOne * numberTwo;
+                break;
+            default:
+                System.out.println("Incorrect operation. Please choose the correct mathematical operation.");
+        }
+        return result;
+    }
+
+    private static String getOperation() {
+        Random rand = new Random();
+        String[] operation = {"+", "-", "*"};
+        int operationIndex = rand.nextInt(operation.length);
+        return operation[operationIndex];
+    }
+}

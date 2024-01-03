@@ -13,8 +13,10 @@ public class ProgressionGame {
         Random rand = new Random();
         final int startNumber = 50;
         final int stepSize = 10;
+        final int minLength = 5;
+        final int maxLength = 10;
         for (int i = 0; i < task.length; i++) {
-            int length = rand.nextInt(5, 10);
+            int length = rand.nextInt(minLength, maxLength);
             String[] array = new String[length];
             int start = rand.nextInt(startNumber);
             int step = rand.nextInt(stepSize);

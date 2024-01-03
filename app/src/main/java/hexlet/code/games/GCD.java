@@ -12,9 +12,9 @@ public class GCD {
         String[][] task = new String[linesCount][columnsCount];
         Random rand = new Random();
         for (int i = 0; i < task.length; i++) {
-            final int SIZE = 50;
-            int numberOne = rand.nextInt(SIZE);
-            int numberTwo = rand.nextInt(SIZE);
+            final int sizeNumber = 50;
+            int numberOne = rand.nextInt(sizeNumber);
+            int numberTwo = rand.nextInt(sizeNumber);
             task[i][0] = numberOne + " " + numberTwo;
 
             while (numberTwo != 0) {
