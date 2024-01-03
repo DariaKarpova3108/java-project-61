@@ -21,36 +21,36 @@ public class App {
                 6 - Prime
                 0 - Exit
                 Your choice:""");
-        final int GREETINGS_GAME = 1;
-        final int EVEN_GAME = 2;
-        final int CALCULATE_GAME = 3;
-        final int GCD_GAME = 4;
-        final int PROGRESSION_GAME = 5;
-        final int PRIME_GAME = 6;
-        final int EXIT_GAME = 0;
+        final int greetingGame = 1;
+        final int evenGame = 2;
+        final int calculateGame = 3;
+        final int gcdGame = 4;
+        final int progressionGame = 5;
+        final int primeGame = 6;
+        final int exitGame = 0;
 
         int number = scan.nextInt();
         scan.nextLine();
         switch (number) {
-            case GREETINGS_GAME:
+            case greetingGame:
                 Cli.greetings();
                 break;
-            case EVEN_GAME:
+            case evenGame:
                 EvenGame.playEvenGame();
                 break;
-            case CALCULATE_GAME:
+            case calculateGame:
                 CalculateGame.playCalculate();
                 break;
-            case GCD_GAME:
+            case gcdGame:
                 GCD.playGcd();
                 break;
-            case PROGRESSION_GAME:
+            case progressionGame:
                 ProgressionGame.playProgression();
                 break;
-            case PRIME_GAME:
+            case primeGame:
                 Prime.playPrimeGame();
                 break;
-            case EXIT_GAME:
+            case exitGame:
                 break;
             default:
                 System.out.println("Invalid game number. Please enter a number from 0 to 6.");

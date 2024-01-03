@@ -7,9 +7,9 @@ import java.util.Random;
 public class Prime {
     public static void playPrimeGame() {
         String description = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
-        final int LINES = 3;
-        final int COLUMNS = 2;
-        String[][] task = new String[LINES][COLUMNS];
+        final int linesCount = 3;
+        final int columnsCount = 2;
+        String[][] task = new String[linesCount][columnsCount];
         Random rand = new Random();
         for (int i = 0; i < task.length; i++) {
            final int SIZE = 100;

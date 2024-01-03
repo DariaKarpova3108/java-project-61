@@ -7,17 +7,17 @@ import java.util.Random;
 public class ProgressionGame {
     public static void playProgression() {
         String description = "What number is missing in the progression?";
-        final int LINES = 3;
-        final int COLUMNS = 2;
-        String[][] task = new String[LINES][COLUMNS];
+        final int linesCount = 3;
+        final int columnsCount = 2;
+        String[][] task = new String[linesCount][columnsCount];
         Random rand = new Random();
-        final int START = 50;
-        final int STEP = 10;
+        final int startNumber = 50;
+        final int stepSize = 10;
         for (int i = 0; i < task.length; i++) {
             int length = rand.nextInt(5, 10);
             String[] array = new String[length];
-            int start = rand.nextInt(START);
-            int step = rand.nextInt(STEP);
+            int start = rand.nextInt(startNumber);
+            int step = rand.nextInt(stepSize);
             for (int k = 0; k < array.length; k++) {
                 array[k] = String.valueOf(start + k * step);
             }

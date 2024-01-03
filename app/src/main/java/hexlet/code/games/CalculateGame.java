@@ -8,15 +8,15 @@ public class CalculateGame {
     public static void playCalculate() {
         Random rand = new Random();
         String description = "What is the result of the expression?";
-        final int LINES = 3;
-        final int COLUMNS = 2;
-        final int SIZE = 10;
-        String[][] task = new String[LINES][COLUMNS];
+        final int linesCount = 3;
+        final int columnsCount = 2;
+        final int sizeNumber = 10;
+        String[][] task = new String[linesCount][columnsCount];
         String[] operation = {"+", "-", "*"};
 
         for (int i = 0; i < task.length; i++) {
-            int numberOne = rand.nextInt(SIZE);
-            int numberTwo = rand.nextInt(SIZE);
+            int numberOne = rand.nextInt(sizeNumber);
+            int numberTwo = rand.nextInt(sizeNumber);
             int operationIndex = rand.nextInt(operation.length);
             switch (operation[operationIndex]) {
                 case "+" -> task[i][0] = numberOne + " + " + numberTwo;
