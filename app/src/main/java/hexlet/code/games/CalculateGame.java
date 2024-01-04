@@ -24,7 +24,8 @@ public class CalculateGame {
             case "-" -> numberFirst - numberSecond;
             case "*" -> numberFirst * numberSecond;
             default ->
-                    throw new RuntimeException("Incorrect operation. Please choose the correct mathematical operation.");
+                    throw new RuntimeException("Incorrect operation. \n"
+                            +"Please choose the correct mathematical operation.");
         };
     }
 
@@ -32,7 +33,7 @@ public class CalculateGame {
         String[] round = new String[2];
         int numberFirst = Utils.generateNumber(SIZE);
         int numberSecond = Utils.generateNumber(SIZE);
-        String operation = OPERATION[Utils.generateNumber(3)];
+        String operation = OPERATION[Utils.generateNumber(OPERATION.length)];
         String question = numberFirst + " " + operation + " " + numberSecond;
 
         var answer = getAnswer(numberFirst, numberSecond, operation);
