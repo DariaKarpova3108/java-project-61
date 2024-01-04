@@ -1,51 +1,44 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-
-import java.util.Random;
+import hexlet.code.Utils;
 
 public class CalculateGame {
+
+    public static final int SIZE = 10;
+    public static final String[] OPERATION = new String[]{"+", "-", "*"};
+
     public static void playCalculate() {
-        Random rand = new Random();
-        String description = "What is the result of the expression?";
-        final int linesCount = 3;
+        final String description = "What is the result of the expression?";
         final int columnsCount = 2;
-        final int sizeNumber = 10;
-        String[][] task = new String[linesCount][columnsCount];
-        for (int i = 0; i < task.length; i++) {
-            int firstNumber = rand.nextInt(sizeNumber);
-            int secondNumber = rand.nextInt(sizeNumber);
-            String operation = getOperation();
-            String question = firstNumber + " " + operation + " " + secondNumber;
-            int answer = calculate(firstNumber, secondNumber, operation);
-            task[i][0] = question;
-            task[i][1] = Integer.toString(answer);
+        String[][] rounds = new String[Engine.GENERAL_RIGHT_COUNT_ANSWER][columnsCount];
+        for (int i = 0; i < rounds.length; i++) {
+            rounds[i] = generateRoundData();
         }
-        Engine.run(description, task);
+        Engine.run(description, rounds);
     }
 
-    private static int calculate(int numberOne, int numberTwo, String operation) {
-        int result = 0;
-        switch (operation) {
-            case "+":
-                result = numberOne + numberTwo;
-                break;
-            case "-":
-                result = numberOne - numberTwo;
-                break;
-            case "*":
-                result = numberOne * numberTwo;
-                break;
-            default:
-                System.out.println("Incorrect operation. Please choose the correct mathematical operation.");
-        }
-        return result;
+    private static int getAnswer(int numberFirst, int numberSecond, String operation) {
+        return switch (operation) {
+            case "+" -> numberFirst + numberSecond;
+            case "-" -> numberFirst - numberSecond;
+            case "*" -> numberFirst * numberSecond;
+            default ->
+                    throw new RuntimeException("Incorrect operation. Please choose the correct mathematical operation.");
+        };
     }
 
-    private static String getOperation() {
-        Random rand = new Random();
-        String[] operation = {"+", "-", "*"};
-        int operationIndex = rand.nextInt(operation.length);
-        return operation[operationIndex];
+    private static String[] generateRoundData() {
+        String[] round = new String[2];
+        int numberFirst = Utils.generateNumber(SIZE);
+        int numberSecond = Utils.generateNumber(SIZE);
+        String operation = OPERATION[Utils.generateNumber(3)];
+        String question = numberFirst + " " + operation + " " + numberSecond;
+
+        var answer = getAnswer(numberFirst, numberSecond, operation);
+
+        round[0] = question;
+        round[1] = Integer.toString(answer);
+        return round;
     }
 }

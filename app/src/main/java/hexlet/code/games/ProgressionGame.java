@@ -1,34 +1,41 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.Utils;
 
 import java.util.Random;
 
 public class ProgressionGame {
+    public static final int STEP_SIZE = 10;
+    public static final int MIN_LENGTH = 5;
+    public static final int MAX_LENGTH = 10;
+    public static final int START_NUMBER = 50;
+
     public static void playProgression() {
-        String description = "What number is missing in the progression?";
-        final int linesCount = 3;
+        final String description = "What number is missing in the progression?";
         final int columnsCount = 2;
-        String[][] task = new String[linesCount][columnsCount];
-        Random rand = new Random();
-        final int startNumber = 50;
-        final int stepSize = 10;
-        final int minLength = 5;
-        final int maxLength = 10;
-        for (int i = 0; i < task.length; i++) {
-            int length = rand.nextInt(minLength, maxLength);
-            String[] array = new String[length];
-            int start = rand.nextInt(startNumber);
-            int step = rand.nextInt(stepSize);
-            for (int k = 0; k < array.length; k++) {
-                array[k] = String.valueOf(start + k * step);
-            }
-            int missingIndex = rand.nextInt(length);
-            String missingNumber = array[missingIndex];
-            array[missingIndex] = "..";
-            task[i][0] = String.join(" ", array);
-            task[i][1] = missingNumber;
+        String[][] rounds = new String[Engine.GENERAL_RIGHT_COUNT_ANSWER][columnsCount];
+        for (int i = 0; i < rounds.length; i++) {
+            rounds[i] = generateRoundData();
         }
-        Engine.run(description, task);
+        Engine.run(description, rounds);
+    }
+
+    private static String[] generateRoundData() {
+        Random rand = new Random();
+        String[] round = new String[2];
+        int length = rand.nextInt(MIN_LENGTH, MAX_LENGTH);
+        String[] progression = new String[length];
+        int start = Utils.generateNumber(START_NUMBER);
+        int step = Utils.generateNumber(STEP_SIZE);
+        for (int i = 0; i < progression.length; i++) {
+            progression[i] = String.valueOf(start + i * step);
+        }
+        int missingIndex = Utils.generateNumber(length);
+        String missingNumber = progression[missingIndex];
+        progression[missingIndex] = "..";
+        round[0] = String.join(" ", progression);
+        round[1] = missingNumber;
+        return round;
     }
 }
