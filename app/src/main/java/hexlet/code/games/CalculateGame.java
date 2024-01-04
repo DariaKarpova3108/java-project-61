@@ -23,9 +23,8 @@ public class CalculateGame {
             case "+" -> numberFirst + numberSecond;
             case "-" -> numberFirst - numberSecond;
             case "*" -> numberFirst * numberSecond;
-            default ->
-                    throw new RuntimeException("Incorrect operation. \n"
-                            +"Please choose the correct mathematical operation.");
+            default -> throw new RuntimeException("Incorrect operation. \n"
+                    + "Please choose the correct mathematical operation.");
         };
     }
 
