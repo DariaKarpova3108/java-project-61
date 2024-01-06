@@ -7,18 +7,18 @@ public class CalculateGame {
 
     public static final int SIZE = 10;
     public static final String[] OPERATION = new String[]{"+", "-", "*"};
+    public static final int COLUMNS_COUNT = 2;
 
     public static void playCalculate() {
         final String description = "What is the result of the expression?";
-        final int columnsCount = 2;
-        String[][] rounds = new String[Engine.GENERAL_RIGHT_COUNT_ANSWER][columnsCount];
+        String[][] rounds = new String[Engine.GENERAL_RIGHT_COUNT_ANSWER][COLUMNS_COUNT];
         for (int i = 0; i < rounds.length; i++) {
             rounds[i] = generateRoundData();
         }
         Engine.run(description, rounds);
     }
 
-    private static int getAnswer(int numberFirst, int numberSecond, String operation) {
+    private static int calculate(int numberFirst, int numberSecond, String operation) {
         return switch (operation) {
             case "+" -> numberFirst + numberSecond;
             case "-" -> numberFirst - numberSecond;
@@ -29,14 +29,12 @@ public class CalculateGame {
     }
 
     private static String[] generateRoundData() {
-        String[] round = new String[2];
+        String[] round = new String[COLUMNS_COUNT];
         int numberFirst = Utils.generateNumber(SIZE);
         int numberSecond = Utils.generateNumber(SIZE);
         String operation = OPERATION[Utils.generateNumber(OPERATION.length)];
         String question = numberFirst + " " + operation + " " + numberSecond;
-
-        var answer = getAnswer(numberFirst, numberSecond, operation);
-
+        var answer = calculate(numberFirst, numberSecond, operation);
         round[0] = question;
         round[1] = Integer.toString(answer);
         return round;
